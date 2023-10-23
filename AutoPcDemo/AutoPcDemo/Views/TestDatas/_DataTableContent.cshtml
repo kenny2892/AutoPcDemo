@@ -1,0 +1,37 @@
+﻿@model IEnumerable<AutoPcDemoWebsite.Models.TestData>
+
+<thead>
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryOne)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CategoryTwo)
+        </th>
+    </tr>
+</thead>
+<tbody>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>
+                <a target="_blank" asp-action="Details" asp-route-id="@item.ID">Details</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryOne)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryTwo)
+            </td>
+        </tr>
+    }
+</tbody>

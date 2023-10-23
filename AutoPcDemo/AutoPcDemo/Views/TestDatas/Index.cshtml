@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Index";
+
+    if(ViewData["SearchBy"] is null)
+    {
+        ViewData["SearchBy"] = "";
+    }
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<label for="search-bar">ID Search: </label>
+<input type="text" value="@ViewData["SearchBy"]" placeholder="Search" id="search-bar" onkeydown="Search(event, 'table-of-data', 'search-bar')" />
+<table class="table" id="table-of-data">
+</table>
+
+@section Scripts
+{
+    <script src="~/js/table.js" asp-append-version="true"></script>
+    <script>
+        LoadTableContents("table-of-data", "search-bar");
+    </script>
+}
